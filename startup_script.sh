@@ -8,12 +8,13 @@ from google.cloud import bigquery
 client = bigquery.Client()
 
 # table Id, in which we want to add data
-table_id = "{}.terraform_dataset.trail".format(client.project)
+# table_id = "{}.terraform_dataset.trail".format(client.project)
+table_id = "ram-pde-project.terraform_dataset.trail"
 
 job_config = bigquery.LoadJobConfig(
     schema = [
     bigquery.SchemaField("name", "STRING", mode="REQUIRED"),
-    bigquery.SchemaField("age", "INTEGER", mode="REQUIRED"),
+    bigquery.SchemaField("age", "STRING", mode="REQUIRED"),
 ],
     skip_leading_rows=1,
     # This makes source format defaults to CSV
